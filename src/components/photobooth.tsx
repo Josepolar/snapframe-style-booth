@@ -532,10 +532,40 @@ export function PhotoBooth() {
       </section>
 
       <footer className="border-t border-border mt-12">
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
           <div>
             <p className="font-display italic text-lg">SnapFrame</p>
             <p className="text-xs text-muted-foreground">Made for soft afternoons in Seongsu-dong.</p>
+            <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">Built by Jose Fernandez</span>
+              <a
+                href="https://github.com/Josepolar"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-foreground"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jose-fernandez-7058b12a7"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-foreground"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/jsfern.php/"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-foreground"
+              >
+                Instagram
+              </a>
+            </div>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              I built this because I was inspired by my future girlfriend/wifey. Since she loves photobooths, I wanted to create something special that she would enjoy someday.
+            </p>
           </div>
           <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             © {new Date().getFullYear()} SnapFrame Studio
