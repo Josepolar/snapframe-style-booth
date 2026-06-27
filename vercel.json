@@ -1,6 +1,14 @@
 {
-  "buildCommand": "bun run build",
-  "installCommand": "bun install",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "framework": "vite",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "functions": {
+    "api/ssr.js": {
+      "runtime": "edge"
+    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/ssr" }
+  ]
 }
