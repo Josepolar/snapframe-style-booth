@@ -1,8 +1,20 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": "vite",
-  "outputDirectory": "dist",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/ssr.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/ssr" }
   ]
