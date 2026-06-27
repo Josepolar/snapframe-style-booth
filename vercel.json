@@ -3,8 +3,7 @@
   "installCommand": "npm install",
   "framework": "vite",
   "outputDirectory": "dist",
-
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/ssr" }
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/ssr" }
   ]
 }

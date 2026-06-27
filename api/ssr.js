@@ -1,10 +1,22 @@
-export default async function handler(request) {
-  // Dynamically import the built server bundle produced by `vite build`.
-  // The bundle exports a default object with a `fetch(request, env, ctx)` method.
+export default async function handler(req, res) {
   const serverModule = await import('../dist/server/server.js');
   const server = serverModule.default ?? serverModule;
-  // Call the server's fetch handler and return its Response.
-  // Vercel Edge provides a `Request` object compatible with the Fetch API.
-  const resp = await server.fetch(request, /* env */ undefined, /* ctx */ undefined);
-  return resp;
+
+  const url = new URL(req.url || '/', `https://${req.headers.host || 'localhost'}`);
+  const request = new Request(url.toString(), {
+    method: req.method,
+    headers: req.headers,
+    body: req.method !== 'GET' && req.method !== 'HEAD' ? req : undefined,
+  });
+
+  const response = await server.fetch(request, undefined, undefined);
+  const buffer = Buffer.from(await response.arrayBuffer());
+
+  res.statusCode = response.status;
+  for (const [key, value] of response.headers) {
+    if (key.toLowerCase() === 'transfer-encoding') continue;
+    res.setHeader(key, value);
+  }
+  res.setHeader('content-length', buffer.length);
+  res.end(buffer);
 }
