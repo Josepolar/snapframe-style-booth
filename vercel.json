@@ -1,14 +1,9 @@
 {
-  "version": 3,
-  "installCommand": "npm install",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "outputDirectory": "dist/client",
-  "functions": {
-    "api/ssr.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/ssr.js" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/ssr" }
   ]
 }
