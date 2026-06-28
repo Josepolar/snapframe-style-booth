@@ -62,7 +62,7 @@ export async function renderStrip(opts: RenderOpts): Promise<string> {
   const GAP = 14 * scale;
   const FOOTER = 110 * scale;
 
-  let cells: { x: number; y: number; w: number; h: number }[] = [];
+  const cells: { x: number; y: number; w: number; h: number }[] = [];
 
   if (layout === "strip4") {
     const cellW = 360 * scale;

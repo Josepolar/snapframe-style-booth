@@ -14,15 +14,7 @@ export const MODES: Mode[] = [
   { id: "group", label: "Group", shots: 4, hint: "The whole crew" },
 ];
 
-export type FilterId =
-  | "none"
-  | "vintage"
-  | "mono"
-  | "film"
-  | "soft"
-  | "retro"
-  | "warm"
-  | "cool";
+export type FilterId = "none" | "vintage" | "mono" | "film" | "soft" | "retro" | "warm" | "cool";
 
 export type Filter = {
   id: FilterId;
@@ -33,13 +25,43 @@ export type Filter = {
 
 export const FILTERS: Filter[] = [
   { id: "none", label: "Natural", css: "none", swatch: "#e7e5e4" },
-  { id: "warm", label: "Warm Tone", css: "saturate(1.1) sepia(0.18) contrast(1.05) brightness(1.04)", swatch: "#fde4cf" },
-  { id: "cool", label: "Cool Tone", css: "saturate(1.05) hue-rotate(-10deg) brightness(1.02)", swatch: "#dbeafe" },
-  { id: "vintage", label: "Vintage", css: "sepia(0.45) contrast(0.95) saturate(0.9) brightness(1.02)", swatch: "#d6c5a8" },
+  {
+    id: "warm",
+    label: "Warm Tone",
+    css: "saturate(1.1) sepia(0.18) contrast(1.05) brightness(1.04)",
+    swatch: "#fde4cf",
+  },
+  {
+    id: "cool",
+    label: "Cool Tone",
+    css: "saturate(1.05) hue-rotate(-10deg) brightness(1.02)",
+    swatch: "#dbeafe",
+  },
+  {
+    id: "vintage",
+    label: "Vintage",
+    css: "sepia(0.45) contrast(0.95) saturate(0.9) brightness(1.02)",
+    swatch: "#d6c5a8",
+  },
   { id: "mono", label: "Noir Mono", css: "grayscale(1) contrast(1.1)", swatch: "#404040" },
-  { id: "film", label: "Film 35mm", css: "contrast(1.15) saturate(1.2) sepia(0.1) brightness(0.98)", swatch: "#bda58a" },
-  { id: "soft", label: "Soft Skin", css: "blur(0.4px) brightness(1.08) saturate(0.95) contrast(0.95)", swatch: "#fbd5d5" },
-  { id: "retro", label: "Retro Booth", css: "sepia(0.25) saturate(1.3) contrast(1.1) hue-rotate(-8deg)", swatch: "#f4a261" },
+  {
+    id: "film",
+    label: "Film 35mm",
+    css: "contrast(1.15) saturate(1.2) sepia(0.1) brightness(0.98)",
+    swatch: "#bda58a",
+  },
+  {
+    id: "soft",
+    label: "Soft Skin",
+    css: "blur(0.4px) brightness(1.08) saturate(0.95) contrast(0.95)",
+    swatch: "#fbd5d5",
+  },
+  {
+    id: "retro",
+    label: "Retro Booth",
+    css: "sepia(0.25) saturate(1.3) contrast(1.1) hue-rotate(-8deg)",
+    swatch: "#f4a261",
+  },
 ];
 
 export type LayoutId = "strip4" | "grid2x2" | "polaroid" | "couple" | "collage";

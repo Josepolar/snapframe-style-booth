@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 
@@ -74,16 +75,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "SnapFrame — Korean-style Photobooth" },
-      { name: "description", content: "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export." },
+      {
+        name: "description",
+        content:
+          "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export.",
+      },
       { name: "author", content: "SnapFrame" },
       { property: "og:title", content: "SnapFrame — Korean-style Photobooth" },
-      { property: "og:description", content: "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export." },
+      {
+        property: "og:description",
+        content:
+          "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SnapFrame — Korean-style Photobooth" },
-      { name: "twitter:description", content: "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/be5154af-dc3a-486a-a8b7-2d2b823c91ce" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/be5154af-dc3a-486a-a8b7-2d2b823c91ce" },
+      {
+        name: "twitter:description",
+        content:
+          "Capture, style and share photostrips inspired by Seoul's iconic photobooths. Solo, couple, friends and group modes with filters, frames and instant export.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/be5154af-dc3a-486a-a8b7-2d2b823c91ce",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/be5154af-dc3a-486a-a8b7-2d2b823c91ce",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -101,7 +122,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -111,6 +131,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

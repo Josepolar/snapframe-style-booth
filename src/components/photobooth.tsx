@@ -173,9 +173,15 @@ export function PhotoBooth() {
             SnapFrame
           </Link>
           <div className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
-            <Link to="/" className="text-foreground">Studio</Link>
-            <Link to="/gallery" className="hover:text-foreground transition-colors">Gallery</Link>
-            <a href="#templates" className="hover:text-foreground transition-colors">Templates</a>
+            <Link to="/" className="text-foreground">
+              Studio
+            </Link>
+            <Link to="/gallery" className="hover:text-foreground transition-colors">
+              Gallery
+            </Link>
+            <a href="#templates" className="hover:text-foreground transition-colors">
+              Templates
+            </a>
           </div>
         </div>
         <div className="flex items-center gap-4">
@@ -244,7 +250,7 @@ export function PhotoBooth() {
                   </h2>
                   <p className="text-sm text-stone-400 leading-relaxed">
                     {cam.state === "error"
-                      ? cam.error ?? "Check your browser permissions or upload photos instead."
+                      ? (cam.error ?? "Check your browser permissions or upload photos instead.")
                       : "Allow camera access to capture your photostrip, or upload photos from your device."}
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center pt-2">
@@ -274,7 +280,9 @@ export function PhotoBooth() {
               <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between pointer-events-none">
                 <div className="flex justify-between items-start">
                   <div className="bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] font-mono tracking-tighter uppercase">
-                    {busy ? `Capturing ${Math.min(shots.length + 1, layout.shots)} / ${layout.shots}` : "Live"}
+                    {busy
+                      ? `Capturing ${Math.min(shots.length + 1, layout.shots)} / ${layout.shots}`
+                      : "Live"}
                   </div>
                   <div className="flex flex-col items-end gap-2">
                     <div className="size-2 rounded-full bg-accent animate-pulse" />
@@ -427,7 +435,9 @@ export function PhotoBooth() {
                     title={c.label}
                     aria-label={c.label}
                     className={`size-9 rounded-full border transition-transform hover:scale-110 ${
-                      frameId === c.id ? "ring-2 ring-foreground ring-offset-2 ring-offset-background" : "border-border"
+                      frameId === c.id
+                        ? "ring-2 ring-foreground ring-offset-2 ring-offset-background"
+                        : "border-border"
                     }`}
                     style={{ background: c.value }}
                   />
@@ -515,7 +525,13 @@ export function PhotoBooth() {
                     const blob = await (await fetch(data)).blob();
                     const file = new File([blob], "snapframe.png", { type: "image/png" });
                     if (navigator.share && (navigator.canShare?.({ files: [file] }) ?? false)) {
-                      navigator.share({ files: [file], title: "SnapFrame", text: caption || "My photostrip" }).catch(() => {});
+                      navigator
+                        .share({
+                          files: [file],
+                          title: "SnapFrame",
+                          text: caption || "My photostrip",
+                        })
+                        .catch(() => {});
                     } else {
                       downloadDataUrl(data, `snapframe-${Date.now()}.png`);
                     }
@@ -535,7 +551,9 @@ export function PhotoBooth() {
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
           <div>
             <p className="font-display italic text-lg">SnapFrame</p>
-            <p className="text-xs text-muted-foreground">Made for soft afternoons in Seongsu-dong.</p>
+            <p className="text-xs text-muted-foreground">
+              Made for soft afternoons in Seongsu-dong.
+            </p>
             <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
               <span className="font-medium text-foreground">Built by Jose Fernandez</span>
               <a
@@ -564,7 +582,8 @@ export function PhotoBooth() {
               </a>
             </div>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              I built this because I was inspired by my future girlfriend/wifey. Since she loves photobooths, I wanted to create something special that she would enjoy someday.
+              I built this because I was inspired by my future girlfriend/wifey. Since she loves
+              photobooths, I wanted to create something special that she would enjoy someday.
             </p>
           </div>
           <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
