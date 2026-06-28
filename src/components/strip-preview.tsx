@@ -76,7 +76,13 @@ function CellLayout({
     return (
       <div className="space-y-2.5">
         {cells.map((i) => (
-          <Cell key={i} ratio="aspect-[4/3]" src={shots[i]} filterCss={filterCss} active={capturingIndex === i} />
+          <Cell
+            key={i}
+            ratio="aspect-[4/3]"
+            src={shots[i]}
+            filterCss={filterCss}
+            active={capturingIndex === i}
+          />
         ))}
       </div>
     );
@@ -85,19 +91,38 @@ function CellLayout({
     return (
       <div className="grid grid-cols-2 gap-2">
         {cells.map((i) => (
-          <Cell key={i} ratio="aspect-square" src={shots[i]} filterCss={filterCss} active={capturingIndex === i} />
+          <Cell
+            key={i}
+            ratio="aspect-square"
+            src={shots[i]}
+            filterCss={filterCss}
+            active={capturingIndex === i}
+          />
         ))}
       </div>
     );
   }
   if (layoutId === "polaroid") {
-    return <Cell ratio="aspect-square" src={shots[0]} filterCss={filterCss} active={capturingIndex === 0} />;
+    return (
+      <Cell
+        ratio="aspect-square"
+        src={shots[0]}
+        filterCss={filterCss}
+        active={capturingIndex === 0}
+      />
+    );
   }
   if (layoutId === "couple") {
     return (
       <div className="grid grid-cols-2 gap-2">
         {cells.map((i) => (
-          <Cell key={i} ratio="aspect-[3/4]" src={shots[i]} filterCss={filterCss} active={capturingIndex === i} />
+          <Cell
+            key={i}
+            ratio="aspect-[3/4]"
+            src={shots[i]}
+            filterCss={filterCss}
+            active={capturingIndex === i}
+          />
         ))}
       </div>
     );
@@ -105,7 +130,13 @@ function CellLayout({
   return (
     <div className="grid grid-cols-2 gap-2">
       {cells.map((i) => (
-        <Cell key={i} ratio="aspect-[4/3]" src={shots[i]} filterCss={filterCss} active={capturingIndex === i} />
+        <Cell
+          key={i}
+          ratio="aspect-[4/3]"
+          src={shots[i]}
+          filterCss={filterCss}
+          active={capturingIndex === i}
+        />
       ))}
     </div>
   );
