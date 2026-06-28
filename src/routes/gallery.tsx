@@ -16,7 +16,10 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — SnapFrame" },
-      { name: "description", content: "Your saved SnapFrame photostrips, ready to revisit, share or re-print." },
+      {
+        name: "description",
+        content: "Your saved SnapFrame photostrips, ready to revisit, share or re-print.",
+      },
       { property: "og:title", content: "Gallery — SnapFrame" },
       { property: "og:description", content: "Your saved SnapFrame photostrips." },
     ],
@@ -41,8 +44,12 @@ function GalleryPage() {
             SnapFrame
           </Link>
           <div className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
-            <Link to="/" className="hover:text-foreground transition-colors">Studio</Link>
-            <Link to="/gallery" className="text-foreground">Gallery</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Studio
+            </Link>
+            <Link to="/gallery" className="text-foreground">
+              Gallery
+            </Link>
           </div>
         </div>
         <Link
@@ -63,7 +70,8 @@ function GalleryPage() {
               Your photostrip archive
             </h1>
             <p className="text-sm text-muted-foreground mt-3 max-w-md leading-relaxed">
-              Every strip you save lives here, locally on this device. Download, share or revisit anytime.
+              Every strip you save lives here, locally on this device. Download, share or revisit
+              anytime.
             </p>
           </div>
           <p className="font-mono text-xs text-muted-foreground">
